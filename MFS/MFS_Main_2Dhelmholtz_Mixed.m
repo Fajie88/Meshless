@@ -14,9 +14,10 @@
 %  ========================================================================
 clear; clc; format long;
 t0 = clock; % Time Start   
+addpath('Examples');
 
-style='Helmholtz';   % iexample=1,2,3,4
-% style='ModifiedHelmholtz';  % iexample=1,2
+style='Helmholtz';   % iexample=1,2,3,4,5
+% style='ModifiedHelmholtz';  % iexample=1,2,3
 iexample=5;
 iboundary=2;   % boundary geometry: 1-circle; 2-rectangle
 D=2;        % distance of the real and virtual boundary
@@ -40,7 +41,7 @@ elseif iboundary==2   %---irregular
     nx=rt.*sin(theta)+r.*cos(theta);
     ny=-(rt.*cos(theta)-r.*sin(theta));
     xp=xp';yp=yp'; nx=nx'; ny=ny'; xpv=xpv';ypv=ypv'; 
-%------------------±ß½ç½ÚµãËùÔÚÓ°ÏìÓòµÄ»¡³¤----------------------  
+%------------------è¾¹ç•ŒèŠ‚ç‚¹æ‰€åœ¨å½±å“åŸŸçš„å¼§é•¿----------------------  
     ac=@(thea) sqrt((((sin(n.*thea).*(2*n + 2))/n).*cos(thea)-((n^2+2*n+2-2*(n+1)*cos(n.*thea))./n^2).*sin(thea)).^2+...
     (((sin(n.*thea).*(2*n + 2))/n).*sin(thea)+((n^2+2*n+2-2*(n+1)*cos(n.*thea))./n^2).*cos(thea)).^2);
 % for k11=1:nb
